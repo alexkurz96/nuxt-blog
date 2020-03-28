@@ -55,6 +55,19 @@ export default {
       }
     }
   },
+  mounted() {
+    const {message} = this.$route.query;
+    switch (message) {
+      case 'login':
+        this.$message.info('Для начала войдите в систему');
+        break;
+      case 'logout':
+        this.$message.success('Вы успешно вышли из системы');
+        break;
+      default:
+        break;
+    }
+  },
   methods: {
     onSubmit() {
       this.$refs.form.validate(async valid => {
