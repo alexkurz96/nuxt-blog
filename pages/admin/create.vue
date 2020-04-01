@@ -62,6 +62,9 @@
 export default {
   layout: 'admin',
   middleware: ['admin-auth'],
+  head: {
+    title: `Новый пост | ${process.env.appName}`
+  },
   async asyncData({store, params}) {
     const post = await store.dispatch('post/fetchAdminById', params.id);
     return {post};
